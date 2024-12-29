@@ -1,0 +1,77 @@
+cabal-version:       3.0
+name:                effects-benchmark
+version:             0.1.0.0
+author:              Gautier DI FOLCO
+maintainer:          gautier.difolco@gmail.com
+category:            Data
+build-type:          Simple
+license:             ISC
+license-file:        LICENSE
+synopsis:            Various effects systems benchmark
+description:         Various effects systems benchmark.
+Homepage:            http://github.com/blackheaven/effects-benchmark
+
+executable exe
+  -- type: exitcode-stdio-1.0
+  main-is: Main.hs
+  hs-source-dirs: app
+  other-modules:
+    Common
+    -- ES.Bluefin.Effects
+    -- ES.Bluefin.Interpreters
+    ES.Bluefin.Target
+    ES.Bluefin.Main
+    -- ES.Effectful.Effects
+    -- ES.Effectful.Interpreters
+    ES.Effectful.Target
+    ES.Effectful.Main
+    -- ES.FusedEffects.Effects
+    -- ES.FusedEffects.Interpreters
+    ES.FusedEffects.Target
+    ES.FusedEffects.Main
+    -- ES.IO.Effects
+    -- ES.IO.Interpreters
+    ES.IO.Target
+    ES.IO.Main
+    -- ES.Mtl.Effects
+    -- ES.Mtl.Interpreters
+    ES.Mtl.Target
+    ES.Mtl.Main
+    -- ES.Polysemy.Effects
+    -- ES.Polysemy.Interpreters
+    ES.Polysemy.Target
+    ES.Polysemy.Main
+  default-extensions:
+      DataKinds
+      DefaultSignatures
+      DeriveAnyClass
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      GADTs
+      GeneralizedNewtypeDeriving
+      KindSignatures
+      LambdaCase
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      RankNTypes
+      RecordWildCards
+      ScopedTypeVariables
+      TypeApplications
+      TypeFamilies
+      TypeOperators
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base
+    , criterion
+    , bluefin
+    , effectful-core
+    , fused-effects
+    , mtl
+    , polysemy
+    , polysemy-plugin
+
+  default-language: Haskell2010
