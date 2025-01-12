@@ -4,11 +4,17 @@ module Common
   , pureComputation
   , mkTarget
   , fib
+  , onceEvery
   ) where
 
 import Control.Concurrent
 import Control.Exception
 import Control.Monad
+
+onceEvery :: Int -> (Int -> IO ()) -> Int -> IO ()
+onceEvery freq f n =
+  when (mod n freq == 0) $
+    f n
 
 ioOfMs :: Int -> Int -> IO ()
 ioOfMs delay _ = threadDelay $ delay * 1000
