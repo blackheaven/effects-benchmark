@@ -25,7 +25,7 @@ main = do
   putStrLn ""
   putStrLn "# Benchmark"
   putStrLn "## no IO/computation"
-  defaultMainWith defaultConfig { reportFile = Just "results/reportNoIOComputation.html" } $ allES $ Behavior 1000 $ pureComputation 4
+  defaultMainWith defaultConfig { reportFile = Just "results/reportNoIOComputation.html" } $ allES $ Behavior 1000 $ const $ return ()
   putStrLn "## light computation"
   defaultMainWith defaultConfig { reportFile = Just "results/reportComputationLight.html" } $ allES $ Behavior 1000 $ pureComputation 4
   putStrLn "## heavy computation"
